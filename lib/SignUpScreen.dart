@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class Signupscreen extends StatefulWidget {
+  const Signupscreen({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<Signupscreen> createState() => _SignupscreenState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _SignupscreenState extends State<Signupscreen> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
