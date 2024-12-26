@@ -26,6 +26,6 @@ class TextStyles {
     fontSize: 45.9,
     fontWeight: FontWeight.normal,
     fontFamily: 'DMSans',
-    color: Colorclass.gbrown,
+    color: Colorclass.white,
   );
 }
