@@ -15,4 +15,5 @@ class Colorclass {
   
     static const gbrown  =   Color.fromARGB(255, 149, 133, 130);
     static  const grey = Color.fromARGB(255, 219, 219, 219);
+    static  const white = Color.fromARGB(255, 255, 255, 255);
 }
