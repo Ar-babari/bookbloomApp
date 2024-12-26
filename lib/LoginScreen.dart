@@ -1,3 +1,9 @@
+import 'package:bookbloom/BaseClasses/TextStyleClass.dart';
+import 'package:flutter/material.dart';
+import 'package:bookbloom/BaseClasses/ColorClass.dart'; // استيراد ColorClass
+import 'package:bookbloom/BaseClasses/TextClass.dart'; // استيراد TextClass
+import 'package:bookbloom/ShapesClasses/LoginShape.dart';
+
 class Loginscreen extends StatelessWidget {
   const Loginscreen({super.key});
 
@@ -18,7 +24,7 @@ class Loginscreen extends StatelessWidget {
             // استدعاء الكلمة "LOGIN" من Textclass واستخدام النمط FirstMed من TextStyles
             Text(
               Textclass.Login, // استخدام Login من Textclass
-              style: TextStyles.FirstMed, // استخدام FirstMed من TextStyles
+              style: TextStyles.inBoutton, // استخدام FirstMed من TextStyles
             ),
           ],
         ),

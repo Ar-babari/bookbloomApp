@@ -1,6 +1,6 @@
 import 'package:bookbloom/BaseClasses/ColorClass.dart';
 import 'package:flutter/material.dart';
- // استيراد الكلاس الذي يحتوي على الألوان
+// استيراد الكلاس الذي يحتوي على الألوان
 
 class GradientButtonDemo extends StatelessWidget {
   @override
@@ -14,31 +14,52 @@ class GradientButtonDemo extends StatelessWidget {
           child: ElevatedButton(
             style: ButtonStyle(
               padding: MaterialStateProperty.all(EdgeInsets.all(20)),
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              )),
-              backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30), // زوايا مستديرة
+                ),
+              ),
             ),
             onPressed: () {
-              // Action when button is pressed
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Gradient Button Pressed!')),
+              // التنقل إلى الشاشة الثانية
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SecondScreen()),
               );
             },
             child: Ink(
               decoration: BoxDecoration(
                 gradient: Colorclass.gradient,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(30), // زوايا مستديرة
               ),
               child: Container(
                 alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(
+                    horizontal: 40, vertical: 15), // حجم الزر
                 child: Text(
-                  'Gradient Button',
+                  'Go',
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Screen'),
+      ),
+      body: Center(
+        child: Text(
+          'Welcome to the Second Screen!',
+          style: TextStyle(fontSize: 20, color: Colors.black),
         ),
       ),
     );
