@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class Readingspacescreen extends StatefulWidget {
+  const Readingspacescreen({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<Readingspacescreen> createState() => _ReadingspacescreenState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _ReadingspacescreenState extends State<Readingspacescreen> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
