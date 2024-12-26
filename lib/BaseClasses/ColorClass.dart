@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class Colorclass {
+  static const Color dustyPink = Color.fromARGB(255, 213, 173, 166); // #d5ada6
+  static const Color brown = Color.fromARGB(255, 50, 33, 30);   
 
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
+  static const LinearGradient gradient = LinearGradient(
+    colors: [dustyPink, brown],
+    begin: Alignment.bottomRight,
+    end: Alignment.bottomLeft,
+    );
 }
