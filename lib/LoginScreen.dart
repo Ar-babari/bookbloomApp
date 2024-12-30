@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:bookbloom/BaseClasses/ColorClass.dart';
-
-import 'package:bookbloom/ShapesClasses/LoginShape.dart'; // كلاس الرسمة
+import 'package:bookbloom/BaseClasses/TextStyleClass.dart';
 import 'package:flutter/material.dart';
+import 'package:bookbloom/BaseClasses/ColorClass.dart'; // استيراد ColorClass
+import 'package:bookbloom/BaseClasses/TextClass.dart'; // استيراد TextClass
+import 'package:bookbloom/ShapesClasses/LoginShape.dart';
 
 class Loginscreen extends StatelessWidget {
   const Loginscreen({super.key});
@@ -17,12 +16,14 @@ class Loginscreen extends StatelessWidget {
           children: [
             // الرسمة في الأعلى
             Transform.translate(
-              offset: const Offset(90, 7), // المسافات للرسمة
+              offset: const Offset(40, 30), // المسافات
               child: CustomPaint(
                 size: const Size(307, 231),
                 painter: RPSSCustomPainter(),
               ),
             ),
+            // استدعاء الكلمة "LOGIN" من Textclass واستخدام النمط FirstMed من TextStyles
+        
           ],
         ),
       ),
