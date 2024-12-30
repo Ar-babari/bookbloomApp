@@ -53,7 +53,6 @@ class Textclass {
   static const Settings = "Settings ";   // Settings  , Size : Bold30 , Color : brown
   static const Mode = "Mode  ";   // Settings  , Size : normal18 , Color : grey
   static const Logout = "Log out ";   // Settings  , Size : Bold18 , Color : white
-
   static const DeleteYourAccount = "Delete Your Account ";   // Settings  , Size : Bold18 , Color : Red
 
 
