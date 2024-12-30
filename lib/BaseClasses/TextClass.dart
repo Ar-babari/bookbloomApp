@@ -57,6 +57,13 @@ class Textclass {
   static const DeleteYourAccount = "Delete Your Account ";   // Settings  , Size : Bold18 , Color : Red
 
 
+  static const  parttitle = " part title ";    // Size : normal18 , Color : grey
+  static const  StartW = " start writing your story";    // Size : normal16 , Color : grey
+
+
+
+
+
 
 
 }
