@@ -72,17 +72,6 @@ class Textclass {
   static const Completed  = "Completed ";   // profile , Size : Normal18 , Color : brown
   static const HintTags  = "Adding tags helps readers find your story!";   // profile , Size : Normal16 , Color : grey
   static const HintMature  = "Your story is approptiate for all audiences.The Wattpad community has the abilty to rate your story Mature For mor info, check the content Guidelines under Setting.";   // profile , Size : Normal16, Color : grey
-  static const AddACover  = "Add a cover";   // profile , Size : Bold16 , Color : brown
-  static const Title  = "Title ";   // profile , Size : Normal18 , Color : brown
-  static const Description  = "Description ";   // profile , Size : Normal18 , Color : brown
-  static const Category  = "Category ";   // profile , Size : Normal18 , Color : brown
-  static const Tags  = "Tags ";   // profile , Size : Normal18 , Color : brown
-  static const StoryLanguage  = "Story Language ";   // profile , Size : Normal18 , Color : brown
-  static const Copyright  = "Copyright ";   // profile , Size : Normal18 , Color : brown
-  static const Mature  = "Mature ";   // profile , Size : Normal18 , Color : brown
-  static const Completed  = "Completed ";   // profile , Size : Normal18 , Color : brown
-  static const HintTags  = "Adding tags helps readers find your story!";   // profile , Size : Normal16 , Color : grey
-  static const HintMature  = "Your story is approptiate for all audiences.The Wattpad community has the abilty to rate your story Mature For mor info, check the content Guidelines under Setting.";   // profile , Size : Normal16, Color : grey
 
 
 
