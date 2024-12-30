@@ -67,11 +67,13 @@ class Textclass {
   static const Category  = "Category ";   // profile , Size : Normal18 , Color : brown
   static const Tags  = "Tags ";   // profile , Size : Normal18 , Color : brown
   static const StoryLanguage  = "Story Language ";   // profile , Size : Normal18 , Color : brown
+  static const English   = "English ";   // profile , Size : Normal18 , Color : grey
   static const Copyright  = "Copyright ";   // profile , Size : Normal18 , Color : brown
+  static const AllRightsReserved     = "All Rights Reserved    ";   // profile , Size : Normal18 , Color : grey
   static const Mature  = "Mature ";   // profile , Size : Normal18 , Color : brown
   static const Completed  = "Completed ";   // profile , Size : Normal18 , Color : brown
-  static const HintTags  = "Adding tags helps readers find your story!";   // profile , Size : Normal14 , Color : grey
-  static const HintMature  = "Your story is approptiate for all audiences.The Wattpad community has the abilty to rate your story Mature For mor info, check the content Guidelines under Setting.";   // profile , Size : Normal14, Color : grey
+  static const HintTags  = "Adding tags helps readers find your story!";   // profile , Size : hint14 , Color : grey
+  static const HintMature  = "Your story is approptiate for all audiences.The Wattpad community has the abilty to rate your story Mature For mor info, check the content Guidelines under Setting.";   // profile , Size : hint14, Color : grey
 
 
 
