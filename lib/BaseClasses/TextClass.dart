@@ -70,8 +70,8 @@ class Textclass {
   static const Copyright  = "Copyright ";   // profile , Size : Normal18 , Color : brown
   static const Mature  = "Mature ";   // profile , Size : Normal18 , Color : brown
   static const Completed  = "Completed ";   // profile , Size : Normal18 , Color : brown
-  static const HintTags  = "Adding tags helps readers find your story!";   // profile , Size : Normal16 , Color : grey
-  static const HintMature  = "Your story is approptiate for all audiences.The Wattpad community has the abilty to rate your story Mature For mor info, check the content Guidelines under Setting.";   // profile , Size : Normal16, Color : grey
+  static const HintTags  = "Adding tags helps readers find your story!";   // profile , Size : Normal14 , Color : grey
+  static const HintMature  = "Your story is approptiate for all audiences.The Wattpad community has the abilty to rate your story Mature For mor info, check the content Guidelines under Setting.";   // profile , Size : Normal14, Color : grey
 
 
 
