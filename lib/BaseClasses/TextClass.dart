@@ -83,7 +83,7 @@ class Textclass {
 
   static const Checkyouremail = "Check your email"; //size : bold30 , color : brown
   static const WeHaveSent ="We have sent an instructions to recover your password to your email"; // size : n18 , color :grey
-  static const Successfully = "successfully logged in"; //size : bold18 or 30 , color : brown
+  static const erroelogin = "your password or your email is not correct"; //size : bold18 or 30 , color : brown
   static const ok = "ok"; //size : bold18 , color white
   static const Done = "Done"; // size :bold30 , color :white
   static const mybookshelf = "My book shelf"; // size :bold30 , color :brown
