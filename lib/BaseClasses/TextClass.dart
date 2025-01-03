@@ -61,6 +61,7 @@ class Textclass {
 
 
   static const Editstory  = "Edit story";// profile , Size : Bold18 , Color : brown
+  static const Save  = "save";// profile , Size : Bold18 , Color : brown
   static const AddACover  = "Add a cover";   // profile , Size : Bold16 , Color : brown
   static const Title  = "Title ";   // profile , Size : Normal18 , Color : brown
   static const Description  = "Description ";   // profile , Size : Normal18 , Color : brown
@@ -75,6 +76,22 @@ class Textclass {
   static const HintTags  = "Adding tags helps readers find your story!";   // profile , Size : hint14 , Color : grey
   static const HintMature  = "Your story is approptiate for all audiences.The Wattpad community has the abilty to rate your story Mature For mor info, check the content Guidelines under Setting.";   // profile , Size : hint14, Color : grey
 
+  static const ForgetPass = "Forgot Password" ; // size : bold30 , color : brown
+  static const reset = "enter your email account to reset password"; // size : normal18 color :grey
+  static const Continue ="Continue"; //size : bold18 , color : white
+
+
+  static const Checkyouremail = "Check your email"; //size : bold30 , color : brown
+  static const WeHaveSent ="We have sent an instructions to recover your password to your email"; // size : n18 , color :grey
+  static const Successfully = "successfully logged in"; //size : bold18 or 30 , color : brown
+  static const ok = "ok"; //size : bold18 , color white
+  static const Done = "Done"; // size :bold30 , color :white
+  static const mybookshelf = "My book shelf"; // size :bold30 , color :brown
+  static const currentlyreading = "currently reading"; // size :bold18 , color :brown
+  static const readinglater = "reading later"; // size :bold18 , color :brown
+  static const myfavourite = "my favourite"; // size :bold18 , color :brown
+  static const shelfName = "Shelf name"; // size : normal18 , color grey
+  static const CreateShelf = "Create Shelf"; // size :bold18 , color :whiet
 
 
 

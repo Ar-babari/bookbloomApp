@@ -122,7 +122,7 @@ class Loginscreen extends StatelessWidget {
                   const SizedBox(height: 15),
                   // زر تسجيل الدخول
                   Align(
-                    alignment: Alignment.centerRight, // محاذاة الزر لليمين
+                    alignment: Alignment.center, // محاذاة الزر لليمين
                     child: Container(
                       width: 150,
                       height: 40,

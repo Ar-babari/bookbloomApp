@@ -24,7 +24,7 @@ class TextStyles {
     fontWeight: FontWeight.normal,
     fontFamily: 'DMSans',
   );
-  static const normal14 = TextStyle(
+  static const hint14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
     fontFamily: 'DMSans',
