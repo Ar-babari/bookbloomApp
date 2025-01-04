@@ -16,4 +16,5 @@ class Colorclass {
   static const white = Color.fromARGB(255, 255, 255, 255);
 
   static const Red = Color.fromARGB(255, 159, 0, 0);
+  
 }
