@@ -1,7 +1,9 @@
 import 'package:bookbloom/BaseClasses/ColorClass.dart';
 import 'package:bookbloom/BaseClasses/TextClass.dart';
 import 'package:bookbloom/BaseClasses/TextStyleClass.dart';
+import 'package:bookbloom/readbookScreen.dart';
 import 'package:flutter/material.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -85,6 +87,7 @@ class _HomePageState extends State<HomePage> {
                         unselectedLabelColor: Colorclass.brown,
                         isScrollable: true,
                         indicatorColor: Colorclass.brown,
+                        dividerColor: Colorclass.white,
                         indicatorWeight: 3.0, // سمك الخط تحت الكلمة
                         indicatorPadding:
                             EdgeInsets.only(bottom: 15), // محاذاة الخط للكلمة
@@ -132,14 +135,25 @@ class _HomePageState extends State<HomePage> {
                         ),
                         itemCount: 6, // عدد الكتب
                         itemBuilder: (context, index) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                    'images/book${index + 1}.png'), // صورة الكتاب
-                                fit: BoxFit.cover,
+                          return GestureDetector(
+                            onTap: () {
+                              // انتقال إلى صفحة قراءة الكتاب
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const ReadBookScreen(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'images/book${index + 1}.png'), // صورة الكتاب
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           );
