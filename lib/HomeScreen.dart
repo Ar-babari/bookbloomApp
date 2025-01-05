@@ -3,22 +3,150 @@ import 'package:bookbloom/BaseClasses/TextClass.dart';
 import 'package:bookbloom/BaseClasses/TextStyleClass.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5, // عدد التصنيفات
+      length: 5,
       child: Scaffold(
-        backgroundColor: Colorclass.white,
+        backgroundColor: Colorclass.gbrown,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              color: Colorclass.white,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16, top: 50, bottom: 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CircleAvatar(
+                      radius: 20,
+                      backgroundImage:
+                          AssetImage('images/avatar1.png'), // صورة البروفايل
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      Textclass.WhatDo,
+                      style:
+                          TextStyles.Bold30.copyWith(color: Colorclass.brown),
+                    ),
+                    // تعديل مربع البحث ليظهر في المنتصف
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 20),
+                      child: Align(
+                        alignment: Alignment.center, // محاذاة المربع في المنتصف
+                        child: Container(
+                          constraints: const BoxConstraints(
+                            minHeight: 36, // ارتفاع أقل
+                            maxHeight: 36, // ارتفاع ثابت
+                          ),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: Textclass.author,
+                               // استدعاء النص من TextClass
+                              hintStyle: TextStyles.normal16.copyWith(
+                                  color: Colorclass.brown), // استدعاء التنسيق
+                              prefixIcon: const Icon(Icons.search,
+                                  color: Colorclass.brown),
+                              suffixIcon: const Icon(Icons.close,
+                                  color: Colorclass.brown),
+                              filled: true,
+                              fillColor: Colorclass.grey,
+                              contentPadding: const EdgeInsets.symmetric(
+                                  vertical: 5), // تعديل المحاذاة الرأسية
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            style: const TextStyle(fontSize: 14), // حجم النص
+                            textAlignVertical:
+                                TextAlignVertical.center, // محاذاة النص عمودياً
+                          ),
+                        ),
+                      ),
+                    ),
+                    const TabBar(
+                      labelColor: Colorclass.brown,
+                      unselectedLabelColor: Colorclass.brown,
+                      isScrollable: true,
+                      indicatorColor: Colorclass.brown,
+                      indicatorWeight: 3.0, // سمك الخط تحت الكلمة
+                      indicatorPadding:
+                          EdgeInsets.only(bottom: 15), // محاذاة الخط للكلمة
+                      tabs: [
+                        Tab(text: 'Novel'),
+                        Tab(text: 'Self-love'),
+                        Tab(text: 'Science'),
+                        Tab(text: 'Romance'),
+                        Tab(text: 'Tragedy'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colorclass.gbrown, // اللون البني
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(30), // الحواف العلوية اليسرى
+                        topRight: Radius.circular(30), // الحواف العلوية اليمنى
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20.0, right: 20.0, top: 0.0), // تقليل الحشو العلوي
+                      child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2, // عرض كتابين في كل صف
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                          childAspectRatio: 2 / 3, // النسبة بين العرض والارتفاع
+                        ),
+                        itemCount: 6, // عدد الكتب
+                        itemBuilder: (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    'images/book${index + 1}.png'), // صورة الكتاب
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
         bottomNavigationBar: Container(
           height: 70,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colorclass.white,
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               topLeft: Radius.circular(60),
               topRight: Radius.circular(60),
             ),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
                 color: Colors.black26,
                 blurRadius: 5,
@@ -39,114 +167,12 @@ class HomePage extends StatelessWidget {
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.book, size: 30),
+                icon: Icon(Icons.auto_stories, size: 30),
                 label: '',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.bookmark, size: 30),
                 label: '',
-              ),
-            ],
-          ),
-        ),
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // النص الرئيسي ومربع البحث
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundImage: AssetImage('images/avatar1.png'), // صورة البروفايل
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      "What do you want to\nread today?",
-                      style: TextStyles.Bold30.copyWith(color: Colorclass.brown),
-                    ),
-                    const SizedBox(height: 5),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
-                      child: Container(
-                        constraints: const BoxConstraints(
-                          minHeight: 36, // ارتفاع أقل
-                          maxHeight: 36, // ارتفاع ثابت
-                        ),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: "Book, author",
-                            hintStyle: TextStyle(color: Colorclass.brown, fontSize: 14), // تنسيق النص
-                            prefixIcon: Icon(Icons.search, color: Colorclass.brown),
-                            suffixIcon: Icon(Icons.close, color: Colorclass.brown),
-                            filled: true,
-                            fillColor: Colorclass.grey,
-                            contentPadding: EdgeInsets.symmetric(vertical: 10), // تعديل المحاذاة الرأسية
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          style: const TextStyle(fontSize: 14), // حجم النص
-                          textAlignVertical: TextAlignVertical.center, // محاذاة النص عمودياً
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-           
-              // التصنيفات
-              Container(
-                color: Colorclass.white,
-                padding: const EdgeInsets.symmetric(horizontal: 0),
-                child: TabBar(
-                  labelColor: Colorclass.brown,
-                  unselectedLabelColor: Colorclass.brown,
-                  isScrollable: true,
-                  indicatorColor: Colorclass.dustyPink,
-                  indicatorWeight: 3.0, // سمك الخط تحت الكلمة
-                  indicatorPadding: const EdgeInsets.symmetric(horizontal: 0), // ضبط الخط تحت الكلمة
-                  tabs: [
-                    Tab(text: 'Novel'),
-                    Tab(text: 'Self-love'),
-                    Tab(text: 'Science'),
-                    Tab(text: 'Romance'),
-                    Tab(text: 'Tragedy'),
-                  ],
-                ),
-              ),
-              // الشبكة السفلية
-              Expanded(
-                child: Container(
-                  color: Colorclass.gbrown,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // عرض كتابين في كل صف
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
-                        childAspectRatio: 2 / 3, // النسبة بين العرض والارتفاع
-                      ),
-                      itemCount: 6, // عدد الكتب
-                      itemBuilder: (context, index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(16),
-                            image: DecorationImage(
-                              image: AssetImage('images/book${index + 1}.png'), // صورة الكتاب
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
               ),
             ],
           ),

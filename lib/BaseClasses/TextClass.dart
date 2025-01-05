@@ -43,7 +43,7 @@ class Textclass {
   // Home Page
 
   static const WhatDo =
-      "What do you want to read today?"; // Home Page , Size : Bold30 , Color : white
+      "What do you want to\nread today?"; // Home Page , Size : Bold30 , Color : white
   static const Novel = "Novel"; // Home Page , Size : normal16 , Color : grey
   static const Selflove =
       "Self-love"; // Home Page , Size : normal16 , Color : grey
@@ -125,8 +125,9 @@ class Textclass {
   static const myfavourite = "my favourite"; // size :bold18 , color :brown
   static const shelfName = "Shelf name"; // size : normal18 , color grey
   static const CreateShelf = "Create Shelf"; // size :bold18 , color :white
-  static const author = "author"; //Size : normal16 , Color : grey
+  static const author = "Book ,author "; //Size : normal16 , Color : grey
   static const Both = "Both "; //Size : normal16 , Color : grey
   static const Title1 = "Title"; //Size : normal16 , Color : grey
   static const Author = "Author"; //Size : normal16 , Color : grey
+
 }
