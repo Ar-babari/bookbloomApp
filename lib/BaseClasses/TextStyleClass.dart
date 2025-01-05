@@ -7,6 +7,11 @@ class TextStyles {
     fontWeight: FontWeight.bold,
     fontFamily: 'Roboto',
   );
+  static const Bold24 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Roboto',
+  );
   // زي اللوقن ان 
   static const Bold20 = TextStyle(
     fontSize: 20,
