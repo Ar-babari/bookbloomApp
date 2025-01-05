@@ -32,27 +32,27 @@ class _HomePageState extends State<HomePage> {
                       backgroundImage:
                           AssetImage('images/avatar1.png'), // صورة البروفايل
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 15),
                     Text(
                       Textclass.WhatDo,
                       style:
                           TextStyles.Bold30.copyWith(color: Colorclass.brown),
                     ),
+                    SizedBox(height: 20,),
                     // تعديل مربع البحث ليظهر في المنتصف
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 20),
+                      padding: const EdgeInsets.only(left: 
+                      15 , right: 30),
                       child: Align(
                         alignment: Alignment.center, // محاذاة المربع في المنتصف
                         child: Container(
                           constraints: const BoxConstraints(
-                            minHeight: 36, // ارتفاع أقل
-                            maxHeight: 36, // ارتفاع ثابت
+                            minHeight: 30, // ارتفاع أقل
+                            maxHeight: 32, // ارتفاع ثابت
                           ),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: Textclass.author,
-                               // استدعاء النص من TextClass
                               hintStyle: TextStyles.normal16.copyWith(
                                   color: Colorclass.brown), // استدعاء التنسيق
                               prefixIcon: const Icon(Icons.search,
@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 20,),
                     const TabBar(
                       labelColor: Colorclass.brown,
                       unselectedLabelColor: Colorclass.brown,
@@ -99,43 +100,43 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Colorclass.gbrown, // اللون البني
+                      color: Colorclass.gbrown,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(30), // الحواف العلوية اليسرى
                         topRight: Radius.circular(30), // الحواف العلوية اليمنى
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20.0, right: 20.0, top: 0.0), // تقليل الحشو العلوي
-                      child: GridView.builder(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2, // عرض كتابين في كل صف
-                          crossAxisSpacing: 16,
-                          mainAxisSpacing: 16,
-                          childAspectRatio: 2 / 3, // النسبة بين العرض والارتفاع
-                        ),
-                        itemCount: 6, // عدد الكتب
-                        itemBuilder: (context, index) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                    'images/book${index + 1}.png'), // صورة الكتاب
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          );
-                        },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20.0, right: 20.0, top: 20.0),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, // عرض كتابين في كل صف
+                        crossAxisSpacing: 16,
+                        mainAxisSpacing: 16,
+                        childAspectRatio: 2 / 3, // النسبة بين العرض والارتفاع
                       ),
+                      itemCount: 6, // عدد الكتب
+                      itemBuilder: (context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'images/book${index + 1}.png'), // صورة الكتاب
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
         bottomNavigationBar: Container(
@@ -163,15 +164,15 @@ class _HomePageState extends State<HomePage> {
             showUnselectedLabels: false,
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home, size: 30),
+                icon: Icon(Icons.home, size: 40),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.auto_stories, size: 30),
+                icon: Icon(Icons.auto_stories, size: 40),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.bookmark, size: 30),
+                icon: Icon(Icons.bookmark, size: 40),
                 label: '',
               ),
             ],

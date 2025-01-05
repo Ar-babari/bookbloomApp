@@ -1,5 +1,6 @@
 import 'package:bookbloom/HomeScreen.dart';
 import 'package:bookbloom/LoginScreen.dart';
+import 'package:bookbloom/readbookScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
