@@ -129,5 +129,6 @@ class Textclass {
   static const Both = "Both "; //Size : normal16 , Color : grey
   static const Title1 = "Title"; //Size : normal16 , Color : grey
   static const Author = "Author"; //Size : normal16 , Color : grey
+  static const Inkspire = "Inkspire"; //Size : normal16 , Color : grey
 
 }
