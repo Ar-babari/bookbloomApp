@@ -29,19 +29,19 @@ class _ShelfBookState extends State<ShelfBook> {
         backgroundColor: Colorclass.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colorclass.dustyPink),
+          icon: const Icon(Icons.keyboard_backspace, color: Colorclass.dustyPink , size: 40,),
           onPressed: () {
             // Handle back navigation
           },
         ),
         title: Text(
           "my book shelf",
-          style: TextStyles.Bold16.copyWith(color: Colorclass.brown),
+          style: TextStyles.Bold16.copyWith(color: Colorclass.brown ,),
         ),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.add, color: Colorclass.dustyPink),
+            icon: const Icon(Icons.add, color: Colorclass.dustyPink , size: 40,),
             onPressed: () {
               _showAddShelfDialog(context);
             },
@@ -62,45 +62,6 @@ class _ShelfBookState extends State<ShelfBook> {
             ],
           );
         },
-      ),
-      bottomNavigationBar: Container(
-        height: 80,
-        decoration: const BoxDecoration(
-          color: Colorclass.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(60),
-            topRight: Radius.circular(60),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 5,
-              offset: Offset(0, -2),
-            ),
-          ],
-        ),
-        child: BottomNavigationBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          selectedItemColor: Colorclass.brown,
-          unselectedItemColor: Colorclass.dustyPink,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home, size: 40),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.menu_book, size: 40),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark, size: 40),
-              label: '',
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -155,10 +116,10 @@ class _ShelfBookState extends State<ShelfBook> {
                 decoration: InputDecoration(
                   hintText: "Shelf name",
                   hintStyle: TextStyles.hint14.copyWith(color: Colorclass.grey),
-                  enabledBorder: UnderlineInputBorder(
+                  enabledBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colorclass.grey),
                   ),
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colorclass.brown),
                   ),
                 ),

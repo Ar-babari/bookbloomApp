@@ -2,8 +2,8 @@ import 'package:bookbloom/BaseClasses/ColorClass.dart';
 import 'package:bookbloom/BaseClasses/TextClass.dart';
 import 'package:bookbloom/BaseClasses/TextStyleClass.dart';
 import 'package:bookbloom/readbookScreen.dart';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+ 
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -49,7 +51,8 @@ class _HomePageState extends State<HomePage> {
                       Padding(
                         padding: const EdgeInsets.only(left: 15, right: 30),
                         child: Align(
-                          alignment: Alignment.center, // محاذاة المربع في المنتصف
+                          alignment:
+                              Alignment.center, // محاذاة المربع في المنتصف
                           child: Container(
                             constraints: const BoxConstraints(
                               minHeight: 30, // ارتفاع أقل
@@ -73,8 +76,8 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               style: const TextStyle(fontSize: 14), // حجم النص
-                              textAlignVertical:
-                                  TextAlignVertical.center, // محاذاة النص عمودياً
+                              textAlignVertical: TextAlignVertical
+                                  .center, // محاذاة النص عمودياً
                             ),
                           ),
                         ),
@@ -115,7 +118,8 @@ class _HomePageState extends State<HomePage> {
                         color: Colorclass.gbrown,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30), // الحواف العلوية اليسرى
-                          topRight: Radius.circular(30), // الحواف العلوية اليمنى
+                          topRight:
+                              Radius.circular(30), // الحواف العلوية اليمنى
                         ),
                       ),
                       margin: const EdgeInsets.only(
@@ -164,45 +168,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ],
-          ),
-          bottomNavigationBar: Container(
-            height: 80,
-            decoration: const BoxDecoration(
-              color: Colorclass.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(60),
-                topRight: Radius.circular(60),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black26,
-                  blurRadius: 5,
-                  offset: Offset(0, -2),
-                ),
-              ],
-            ),
-            child: BottomNavigationBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              selectedItemColor: Colorclass.brown,
-              unselectedItemColor: Colorclass.dustyPink,
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home, size: 40),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.auto_stories, size: 40),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.bookmark, size: 40),
-                  label: '',
-                ),
-              ],
-            ),
           ),
         ),
       ),
