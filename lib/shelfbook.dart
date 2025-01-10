@@ -29,7 +29,7 @@ class _ShelfBookState extends State<ShelfBook> {
         backgroundColor: Colorclass.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colorclass.dustyPink),
+          icon: const Icon(Icons.keyboard_backspace, color: Colorclass.dustyPink , size: 40,),
           onPressed: () {
             // Handle back navigation
           },
@@ -41,7 +41,7 @@ class _ShelfBookState extends State<ShelfBook> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.add, color: Colorclass.dustyPink),
+            icon: const Icon(Icons.add, color: Colorclass.dustyPink , size: 40,),
             onPressed: () {
               _showAddShelfDialog(context);
             },
@@ -92,7 +92,7 @@ class _ShelfBookState extends State<ShelfBook> {
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.menu_book, size: 40),
+              icon: Icon(Icons.auto_stories, size: 40),
               label: '',
             ),
             BottomNavigationBarItem(
