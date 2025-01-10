@@ -1,8 +1,6 @@
 import 'package:bookbloom/HomeScreen.dart';
 import 'package:bookbloom/LoginScreen.dart';
-import 'package:bookbloom/SignUpScreen.dart';
 import 'package:bookbloom/readbookScreen.dart';
-import 'package:bookbloom/writeingspaceScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Signupscreen(),
+      home: HomePage(),
     );
   }
 }
