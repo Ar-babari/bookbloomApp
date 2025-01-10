@@ -36,7 +36,7 @@ class _ShelfBookState extends State<ShelfBook> {
         ),
         title: Text(
           "my book shelf",
-          style: TextStyles.Bold16.copyWith(color: Colorclass.brown ,),
+          style: TextStyles.Bold16.copyWith(color: Colorclass.brown , ),
         ),
         centerTitle: true,
         actions: [
