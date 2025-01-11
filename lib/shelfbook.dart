@@ -155,9 +155,11 @@ class _ShelfBookState extends State<ShelfBook> {
               const SizedBox(height: 10),
               TextField(
                 controller: shelfNameController,
+                textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   hintText: "Shelf name",
-                  hintStyle: TextStyles.hint14.copyWith(color: Colorclass.grey),
+                  hintStyle: TextStyles.normal18
+                      .copyWith(color: const Color.fromARGB(112, 0, 0, 0)),
                   enabledBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colorclass.grey),
                   ),
