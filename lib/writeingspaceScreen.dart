@@ -32,7 +32,7 @@ class _WriteingspacescreenState extends State<Writeingspacescreen> {
           padding: EdgeInsets.only(
             left: 16,
             right: 16,
-            top: 16,
+            top: 20,
             bottom: MediaQuery.of(context).viewInsets.bottom + 16,
           ),
           child: SingleChildScrollView(
@@ -171,10 +171,14 @@ class _WriteingspacescreenState extends State<Writeingspacescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+   
       appBar: AppBar(
+        elevation: 0,
+          scrolledUnderElevation: 0,
+          forceMaterialTransparency: true,
         title: const Text(
           Textclass.Inkspire,
-          style: TextStyles.Bold24,
+          style: TextStyles.Bold18,
           textAlign: TextAlign.center,
           
         ),

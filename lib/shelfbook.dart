@@ -29,19 +29,19 @@ class _ShelfBookState extends State<ShelfBook> {
         backgroundColor: Colorclass.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.keyboard_backspace, color: Colorclass.dustyPink , size: 40,),
+          icon: const Icon(Icons.keyboard_backspace, color: Colorclass.dustyPink, size: 40,),
           onPressed: () {
             // Handle back navigation
           },
         ),
         title: Text(
           "my book shelf",
-          style: TextStyles.Bold16.copyWith(color: Colorclass.brown , ),
+          style: TextStyles.Bold16.copyWith(color: Colorclass.brown),
         ),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.add, color: Colorclass.dustyPink , size: 40,),
+            icon: const Icon(Icons.add, color: Colorclass.dustyPink,size: 40,),
             onPressed: () {
               _showAddShelfDialog(context);
             },
