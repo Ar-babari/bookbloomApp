@@ -25,15 +25,10 @@ class _ShelfBookState extends State<ShelfBook> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colorclass.white,
       appBar: AppBar(
         backgroundColor: Colorclass.white,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.keyboard_backspace, color: Colorclass.dustyPink, size: 40,),
-          onPressed: () {
-            // Handle back navigation
-          },
-        ),
         title: Text(
           "my book shelf",
           style: TextStyles.Bold16.copyWith(color: Colorclass.brown),
@@ -41,7 +36,11 @@ class _ShelfBookState extends State<ShelfBook> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.add, color: Colorclass.dustyPink,size: 40,),
+            icon: const Icon(
+              Icons.add,
+              color: Colorclass.dustyPink,
+              size: 40,
+            ),
             onPressed: () {
               _showAddShelfDialog(context);
             },
@@ -62,6 +61,49 @@ class _ShelfBookState extends State<ShelfBook> {
             ],
           );
         },
+      ),
+      bottomNavigationBar: Container(
+        height: 80,
+        decoration: const BoxDecoration(
+          color: Colorclass.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(60),
+            topRight: Radius.circular(60),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 5,
+              offset: Offset(0, -2),
+            ),
+          ],
+        ),
+        child: BottomNavigationBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          selectedItemColor: Colorclass.brown,
+          unselectedItemColor: Colorclass.dustyPink,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home, size: 40),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.auto_stories, size: 40),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark, size: 40),
+              label: '',
+            ),
+          ],
+          currentIndex: 2,
+          onTap: (index) {
+            // Handle navigation between pages
+          },
+        ),
       ),
     );
   }
@@ -113,9 +155,11 @@ class _ShelfBookState extends State<ShelfBook> {
               const SizedBox(height: 10),
               TextField(
                 controller: shelfNameController,
+                textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   hintText: "Shelf name",
-                  hintStyle: TextStyles.hint14.copyWith(color: Colorclass.grey),
+                  hintStyle: TextStyles.normal18
+                      .copyWith(color: const Color.fromARGB(112, 0, 0, 0)),
                   enabledBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colorclass.grey),
                   ),
