@@ -19,4 +19,5 @@ class Colorclass {
   static const Red = Color.fromARGB(255, 159, 0, 0);
 
   static const addicon = Color.fromARGB(170, 0, 0, 0);
+  static const shelf = Color.fromARGB(112, 0, 0, 0);
 }

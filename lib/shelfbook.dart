@@ -62,49 +62,7 @@ class _ShelfBookState extends State<ShelfBook> {
           );
         },
       ),
-      bottomNavigationBar: Container(
-        height: 80,
-        decoration: const BoxDecoration(
-          color: Colorclass.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(60),
-            topRight: Radius.circular(60),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 5,
-              offset: Offset(0, -2),
-            ),
-          ],
-        ),
-        child: BottomNavigationBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          selectedItemColor: Colorclass.brown,
-          unselectedItemColor: Colorclass.dustyPink,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home, size: 40),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.auto_stories, size: 40),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark, size: 40),
-              label: '',
-            ),
-          ],
-          currentIndex: 2,
-          onTap: (index) {
-            // Handle navigation between pages
-          },
-        ),
-      ),
+      
     );
   }
 
@@ -125,7 +83,7 @@ class _ShelfBookState extends State<ShelfBook> {
       child: Center(
         child: Text(
           "No books added",
-          style: TextStyles.normal16.copyWith(color: Colorclass.grey),
+          style: TextStyles.normal16.copyWith(color: Colorclass.shelf),
         ),
       ),
     );
@@ -149,7 +107,7 @@ class _ShelfBookState extends State<ShelfBook> {
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Icon(Icons.close, color: Colorclass.grey),
+                  child: const Icon(Icons.close, color: Colorclass.shelf),
                 ),
               ),
               const SizedBox(height: 10),
@@ -159,7 +117,7 @@ class _ShelfBookState extends State<ShelfBook> {
                 decoration: InputDecoration(
                   hintText: "Shelf name",
                   hintStyle: TextStyles.normal18
-                      .copyWith(color: const Color.fromARGB(112, 0, 0, 0)),
+                      .copyWith(color: Colorclass.shelf),
                   enabledBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colorclass.grey),
                   ),
