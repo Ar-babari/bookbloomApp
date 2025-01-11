@@ -1,6 +1,7 @@
 import 'package:bookbloom/BaseClasses/ColorClass.dart';
 import 'package:bookbloom/BaseClasses/TextClass.dart';
 import 'package:bookbloom/BaseClasses/TextStyleClass.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Writeingspacescreen extends StatefulWidget {
@@ -20,6 +21,13 @@ class _WriteingspacescreenState extends State<Writeingspacescreen> {
     'images/book2.png',
   ];
 
+  List<String> selectedCategories = [];
+
+  bool isCopyright = false; // متغير لحالة Switch
+  bool isMature = false; // متغير لحالة Switch
+  bool isCompleted = false; // متغير لحالة Switch
+  String selectedLanguage = 'English'; // المتغير لتخزين اللغة المختارة
+
   void showEditStoryForm(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -32,123 +40,396 @@ class _WriteingspacescreenState extends State<Writeingspacescreen> {
           padding: EdgeInsets.only(
             left: 16,
             right: 16,
-            top: 20,
+            top: 16,
             bottom: MediaQuery.of(context).viewInsets.bottom + 16,
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Center(
-                  child: Text(
-                    Textclass.Editstory,
-                    style: TextStyles.Bold18,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Row(
+          child: StatefulBuilder(
+            builder: (BuildContext context, StateSetter setModalState) {
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      width: 120,
-                      height: 180,
-                      margin: const EdgeInsets.only(bottom: 10),
-                      decoration: BoxDecoration(
-                        color: Colorclass.grey,
-                        borderRadius: BorderRadius.circular(16),
-                        image: const DecorationImage(
-                          image: AssetImage('images/book1.png'),
-                          fit: BoxFit.cover,
-                        ),
+                    const Center(
+                      child: Text(
+                        Textclass.Editstory,
+                        style: TextStyles.Bold18,
                       ),
-                      child: Center(
-                        child: IconButton(
-                          onPressed: () {
-                            // Add cover action
-                          },
-                          icon: const Icon(
-                            Icons.add_circle_outline_rounded,
-                            size: 80,
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Container(
+                          width: 120,
+                          height: 150,
+                          margin: const EdgeInsets.only(bottom: 10),
+                          decoration: BoxDecoration(
                             color: Colorclass.grey,
+                            borderRadius: BorderRadius.circular(16),
+                            image: const DecorationImage(
+                              image: AssetImage('images/book1.png'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Center(
+                            child: IconButton(
+                              onPressed: () {
+                                // Add cover action
+                              },
+                              icon: const Icon(
+                                Icons.add_circle_outline_rounded,
+                                size: 80,
+                                color: Colorclass.addicon,
+                              ),
+                            ),
                           ),
                         ),
+                        const SizedBox(width: 16),
+                        const Text(
+                          Textclass.AddACover,
+                          style: TextStyles.Bold16,
+                        ),
+                      ],
+                    ),
+                    _buildTextFieldWithValidation(Textclass.Title),
+                    _buildTextFieldWithValidation(Textclass.Description),
+
+                    // Category Section
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Stack(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              _showCategorySelection(
+                                  context); // Open category selection
+                            },
+                            child: const Row(
+                              children: [
+                                Text(
+                                  Textclass.Category,
+                                  style: TextStyles.normal16,
+                                ),
+                                Text(
+                                  ' *',
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 18),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 80,
+                            child: Divider(
+                              height: 1,
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    const SizedBox(
-                      width: 16,
+
+                    // Tags Text Field
+                    Transform.translate(
+                      offset: const Offset(0, -40),
+                      child: _buildTextFieldWithValidation(Textclass.Tags),
                     ),
-                    const Text(
-                      Textclass.AddACover,
-                      style: TextStyles.Bold16,
+                    Transform.translate(
+                      offset: const Offset(0, -40),
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Stack(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                _showSelectLanguage(
+                                    context); // Open category selection
+                              },
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Row(
+                                    children: [
+                                      Text(
+                                        Textclass.StoryLanguage,
+                                        style: TextStyles.normal16,
+                                      ),
+                                      Text(
+                                        ' *',
+                                        style: TextStyle(
+                                            color: Colors.red, fontSize: 18),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    selectedLanguage,
+                                    style: TextStyles.normal16,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 80,
+                              child: Divider(
+                                height: 1,
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    Transform.translate(
+                      offset: const Offset(0, -40),
+                      child: _transformswitchbutton(
+                          Textclass.Copyright, isCopyright, (value) {
+                        setModalState(() {
+                          isCopyright = value;
+                        });
+                      }),
+                    ),
+                    Transform.translate(
+                      offset: const Offset(0, -40),
+                      child: _transformswitchbutton(Textclass.Mature, isMature,
+                          (value) {
+                        setModalState(() {
+                          isMature = value;
+                        });
+                      }),
+                    ),
+                    Transform.translate(
+                      offset: const Offset(0, -80),
+                      child: Text(
+                        Textclass.HintMature,
+
+                        style: TextStyles.hint14.copyWith(
+                            color: Colorclass
+                                .lightgray), // يمكنك تعديل الحجم هنا إذا أردت
+                      ),
+                    ),
+
+                    Transform.translate(
+                      offset: const Offset(0, -40),
+                      child: _transformswitchbutton(
+                          Textclass.Completed, isCompleted, (value) {
+                        setModalState(() {
+                          isCompleted = value;
+                        });
+                      }),
                     ),
                   ],
                 ),
-                _buildTextFieldWithValidation(Textclass.Title),
-                _buildTextFieldWithValidation(Textclass.Description),
-                _buildTextFieldWithValidation(Textclass.Category),
-                _buildTextFieldWithValidation(Textclass.Tags),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      Textclass.Mature,
-                      style: TextStyles.normal18,
-                    ),
-                    Switch(
-                   
-                      value: false,
-                      onChanged: (value) {
-                        // Handle mature toggle
-                      },
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      Textclass.Completed,
-                      style: TextStyles.normal18,
-                    ),
-                    Switch(
-                      value: false,
-                      onChanged: (value) {
-                        // Handle completed toggle
-                      },
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Save action
-                  },
-                  child: const Text(
-                    Textclass.Save,
-                    style: TextStyles.Bold18,
-                    
-                  ),
-                ),
-              ],
-            ),
+              );
+            },
           ),
         );
       },
     );
   }
 
-  Widget _buildTextFieldWithValidation(String labelText) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+  void _showSelectLanguage(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Select Language'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: const Text("Arabic"),
+                leading: Radio<String>(
+                  value: "Arabic",
+                  activeColor: Colorclass.brown,
+                  groupValue: selectedLanguage,
+                  onChanged: (String? value) {
+                    setState(() {
+                      selectedLanguage = value ?? 'English'; // تحديث اللغة
+                    });
+                    Navigator.pop(context);
+                    // إغلاق الديالوج بعد التحديد
+                    showEditStoryForm(
+                        context); // إعادة فتح الـ BottomSheet بعد التغيير
+                  },
+                ),
+              ),
+              ListTile(
+                title: const Text("English"),
+                leading: Radio<String>(
+                  value: "English",
+                  activeColor: Colorclass.brown,
+                  groupValue: selectedLanguage,
+                  onChanged: (String? value) {
+                    setState(() {
+                      selectedLanguage = value ?? 'Arabic'; // تحديث اللغة
+                    });
+                    Navigator.pop(context);
+                    showEditStoryForm(
+                        context); // إعادة فتح الـ BottomSheet بعد التغيير
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _showCategorySelection(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text(
+            Textclass.Category,
+            style: TextStyles.Bold18,
+          ),
+          content: StatefulBuilder(
+            builder: (context, setState) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CheckboxListTile(
+                    title: const Text('Novel'),
+                    activeColor: Colorclass.gbrown,
+                    value: selectedCategories.contains('Novel'),
+                    onChanged: (value) {
+                      _toggleCategorySelection('Novel', value);
+                      setState(() {});
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: const Text('Self-love'),
+                    activeColor: Colorclass.gbrown,
+                    value: selectedCategories.contains('Self-love'),
+                    onChanged: (value) {
+                      _toggleCategorySelection('Self-love', value);
+                      setState(() {});
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: const Text('Science'),
+                    activeColor: Colorclass.gbrown,
+                    value: selectedCategories.contains('Science'),
+                    onChanged: (value) {
+                      _toggleCategorySelection('Science', value);
+                      setState(() {});
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: const Text('Romance'),
+                    activeColor: Colorclass.gbrown,
+                    value: selectedCategories.contains('Romance'),
+                    onChanged: (value) {
+                      _toggleCategorySelection('Romance', value);
+                      setState(() {});
+                    },
+                  ),
+                  CheckboxListTile(
+                    activeColor: Colorclass.gbrown,
+                    title: const Text('Tragedy'),
+                    value: selectedCategories.contains('Tragedy'),
+                    onChanged: (value) {
+                      _toggleCategorySelection('Tragedy', value);
+                      setState(() {});
+                    },
+                  ),
+
+                  // "Other" option
+                  CheckboxListTile(
+                    title: const Text('Other'),
+                    activeColor: Colorclass.gbrown,
+                    value: selectedCategories.contains('Other'),
+                    onChanged: (value) {
+                      _toggleCategorySelection('Other', value);
+                      setState(() {});
+                    },
+                  ),
+
+                  // Show input field if "Other" is selected
+                  if (selectedCategories.contains('Other'))
+                    TextField(
+                      decoration: const InputDecoration(
+                        hintText: 'Write Your Category Here',
+                        border: UnderlineInputBorder(),
+                      ),
+                      onChanged: (value) {
+                        // Handle user input for 'Other'
+                      },
+                    ),
+                ],
+              );
+            },
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                'save',
+                style: TextStyles.Bold16.copyWith(color: Colorclass.gbrown),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _toggleCategorySelection(String category, bool? isSelected) {
+    setState(() {
+      if (isSelected == true) {
+        selectedCategories.add(category);
+      } else {
+        selectedCategories.remove(category);
+      }
+    });
+  }
+
+  Widget _transformswitchbutton(
+      String labelText, bool switchValue, ValueChanged<bool> onChanged) {
+    return Transform.translate(
+      offset: const Offset(0, -40),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             labelText,
-            style: TextStyles.normal16,
+            style: TextStyles.normal18,
           ),
-          const Text(
-            ' *',
-            style: TextStyle(color: Colors.red, fontSize: 18),
+          CupertinoSwitch(
+            value: switchValue,
+            activeColor: Colorclass.gbrown,
+            onChanged: (value) {
+              // تغيير حالة الـ Switch بشكل فوري عند التفاعل
+              onChanged(value);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTextFieldWithValidation(String labelText) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Stack(
+        children: [
+          Row(
+            children: [
+              Text(
+                labelText,
+                style: TextStyles.normal16,
+              ),
+              const Text(
+                ' *',
+                style: TextStyle(color: Colors.red, fontSize: 18),
+              ),
+            ],
           ),
           const Expanded(
             child: SizedBox(
@@ -158,7 +439,6 @@ class _WriteingspacescreenState extends State<Writeingspacescreen> {
                   border: UnderlineInputBorder(),
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-               
                 ),
               ),
             ),
@@ -171,20 +451,13 @@ class _WriteingspacescreenState extends State<Writeingspacescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-   
       appBar: AppBar(
-        elevation: 0,
-          scrolledUnderElevation: 0,
-          forceMaterialTransparency: true,
-        title: const Text(
-          Textclass.Inkspire,
-          style: TextStyles.Bold18,
-          textAlign: TextAlign.center,
-          
-        ),
-        centerTitle: true
-      ),
-      
+          title: const Text(
+            Textclass.Inkspire,
+            style: TextStyles.Bold24,
+            textAlign: TextAlign.center,
+          ),
+          centerTitle: true),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -192,7 +465,6 @@ class _WriteingspacescreenState extends State<Writeingspacescreen> {
             const CircleAvatar(
               backgroundImage: AssetImage('images/avatar1.png'),
               radius: 40,
-              
             ),
             const SizedBox(height: 25),
             const Text(

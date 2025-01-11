@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 6,
       child: Scaffold(
         backgroundColor: Colorclass.gbrown,
         body: Column(
@@ -99,6 +99,7 @@ class _HomePageState extends State<HomePage> {
                         Tab(text: 'Science'),
                         Tab(text: 'Romance'),
                         Tab(text: 'Tragedy'),
+                        Tab(text: 'Other'),
                       ],
                     ),
                   ],
